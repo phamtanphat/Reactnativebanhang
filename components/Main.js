@@ -8,15 +8,15 @@ import Menu from './Menu';
 export default class Main extends PureComponent {
     closeControlPanel = () => {
         this._drawer.close()
-      };
-      openControlPanel = () => {
+    };
+    openControlPanel = () => {
         this._drawer.open()
-      };
+    };
     render() {
         return (
             <Drawer
                 ref={(ref) => { this._drawer = ref; }}
-                content={<Menu />}
+                content={<Menu navigation={this.props.navigation} />}
                 openDrawerOffset={0.4}
                 tapToClose
             >

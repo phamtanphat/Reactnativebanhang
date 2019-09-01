@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { fromLeft } from 'react-navigation-transitions';
-import { createStackNavigator, createAppContainer, 
-    createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Authentication from '../Authentication';
 import ChangInfo from '../ChangInfo';
 import OrderHistory from '../OrderHistory';
