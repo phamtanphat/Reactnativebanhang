@@ -1,12 +1,24 @@
 import React, { PureComponent } from 'react';
-import { View, Text, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import Cart from './Cart/Cart';
 import Contact from './Contact/Contact';
 import Home from './Home/Home';
 import Search from './Search/Search';
+import Header from './Header';
+
+import homeIconS from '../media/appIcon/home.png';
+import homeIcon from '../media/appIcon/home0.png';
+import cartIconS from '../media/appIcon/cart.png';
+import cartIcon from '../media/appIcon/cart0.png';
+import searchIconS from '../media/appIcon/search.png';
+import searchIcon from '../media/appIcon/search0.png';
+import contactIconS from '../media/appIcon/contact.png';
+import contactIcon from '../media/appIcon/contact0.png';
+
 
 const { height } = Dimensions.get('window');
+
 export default class Shop extends PureComponent {
     constructor(props) {
         super(props);
@@ -19,18 +31,17 @@ export default class Shop extends PureComponent {
         open();
     }
     render() {
+        const { iconStyle } = styles;
         return (
             <View style={{ flex: 1 }}>
-                <View style={{ height: height / 8 }}>
-                    <TouchableOpacity onPress={this.openMenu.bind(this)}>
-                        <Text>Open Menu</Text>
-                    </TouchableOpacity>
-
-                </View>
+                <Header onOpenMenu={this.openMenu.bind(this)} />
                 <TabNavigator>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'Home'}
                         title="Home"
+                        renderIcon={() => <Image source={homeIcon} style={iconStyle} />}
+                        renderSelectedIcon={() => <Image source={homeIconS} style={iconStyle} />}
+                        selectedTitleStyle={{ color: '#34B089', fontFamily: 'Avenir' }}
                         onPress={() => this.setState({ selectedTab: 'Home' })}
                     >
                         <Home />
@@ -38,6 +49,10 @@ export default class Shop extends PureComponent {
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'Cart'}
                         title="Cart"
+                        renderIcon={() => <Image source={cartIcon} style={iconStyle} />}
+                        renderSelectedIcon={() => <Image source={cartIconS} style={iconStyle} />}
+                        badgeText="1"
+                        selectedTitleStyle={{ color: '#34B089', fontFamily: 'Avenir' }}
                         onPress={() => this.setState({ selectedTab: 'Cart' })}
                     >
                         <Cart />
@@ -45,6 +60,9 @@ export default class Shop extends PureComponent {
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'Search'}
                         title="Search"
+                        renderIcon={() => <Image source={searchIcon} style={iconStyle} />}
+                        renderSelectedIcon={() => <Image source={searchIconS} style={iconStyle} />}
+                        selectedTitleStyle={{ color: '#34B089', fontFamily: 'Avenir' }}
                         onPress={() => this.setState({ selectedTab: 'Search' })}
                     >
                         <Search />
@@ -52,6 +70,9 @@ export default class Shop extends PureComponent {
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'Contact'}
                         title="Contact"
+                        renderIcon={() => <Image source={contactIcon} style={iconStyle} />}
+                        renderSelectedIcon={() => <Image source={contactIconS} style={iconStyle} />}
+                        selectedTitleStyle={{ color: '#34B089', fontFamily: 'Avenir' }}
                         onPress={() => this.setState({ selectedTab: 'Contact' })}
                     >
                         <Contact />
@@ -62,3 +83,10 @@ export default class Shop extends PureComponent {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    iconStyle: {
+        width: height / 28,
+        height: height / 28
+    }
+});
