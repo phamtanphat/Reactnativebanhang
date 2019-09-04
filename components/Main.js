@@ -12,6 +12,7 @@ export default class Main extends PureComponent {
     openControlPanel = () => {
         this._drawer.open()
     };
+
     render() {
         return (
             <Drawer

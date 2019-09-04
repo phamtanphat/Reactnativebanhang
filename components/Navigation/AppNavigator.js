@@ -13,10 +13,10 @@ const StackNavigator = createStackNavigator({
     ChangInfo: { screen: ChangInfo },
     OrderHistory: { screen: OrderHistory },
     Main: { screen: Main }
-}, { 
-    initialRouteName: 'Main',
-    transitionConfig: () => fromLeft(1000),
-    headerMode: 'none'
+}, {
+        initialRouteName: 'Main',
+        transitionConfig: () => fromLeft(1000),
+        headerMode: 'none'
 });
 
 
