@@ -7,7 +7,7 @@ import profileIcon from './media/temp/profile.png';
 export default class Menu extends PureComponent {
     constructor(props) {
         super(props);
-        this.state = { isLogin: false };
+        this.state = { isLogin: true };
     }
     gotoOrderHistory() {
         this.props.navigation.navigate('OrderHistory');

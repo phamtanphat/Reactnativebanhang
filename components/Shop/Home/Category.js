@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, ImageBackground, StyleSheet } from 'react-native';
+import { Text, View, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Screenapp from '../../Unit/Screenapp';
 
@@ -21,15 +21,27 @@ export default class Category extends PureComponent {
                         width={imageStyle.width}
                         height={imageStyle.height}
                     >
-                        <ImageBackground source={littleIcon} style={imageStyle} >
-                            <Text style={cateTitle}>Maxi dress</Text>
-                        </ImageBackground>
-                        <ImageBackground source={maxiIcon} style={imageStyle} >
-                            <Text style={cateTitle}>Maxi dress</Text>
-                        </ImageBackground>
-                        <ImageBackground source={partyIcon} style={imageStyle} >
-                            <Text style={cateTitle}>Maxi dress</Text>
-                        </ImageBackground>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('ListProduct')}
+                        >
+                            <ImageBackground source={littleIcon} style={imageStyle} >
+                                <Text style={cateTitle}>Maxi dress</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('ListProduct')}
+                        >
+                            <ImageBackground source={maxiIcon} style={imageStyle} >
+                                <Text style={cateTitle}>Maxi dress</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('ListProduct')}
+                        >
+                            <ImageBackground source={partyIcon} style={imageStyle} >
+                                <Text style={cateTitle}>Maxi dress</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>   
                     </Swiper>
                 </View>
 

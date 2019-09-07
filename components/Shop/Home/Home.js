@@ -1,18 +1,20 @@
-import React, { PureComponent } from 'react';
-import { ScrollView } from 'react-native';
-import Collection from './Collection';
-import Category from './Category';
-import Topproduct from './Topproduct';
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+import { fromLeft } from 'react-navigation-transitions';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Homeview from './Homeview';
+import ProductDetail from '../ProductDetail/ProductDetail';
+import ListProduct from '../ListProduct/ListProduct';
 
-export default class Home extends PureComponent {
-    render() {
-        return (
-            <ScrollView style={{ flex: 1, backgroundColor: '#DBDBD8' }}>
-                <Collection />
-                <Category />
-                <Topproduct />
+const StackNavigator = createStackNavigator({
+    Homeview: { screen: Homeview },
+    ProductDetail: { screen: ProductDetail },
+    ListProduct: { screen: ListProduct }
+}, {
+        initialRouteName: 'Homeview',
+        transitionConfig: () => fromLeft(1000),
+        headerMode: 'none'
+});
 
-            </ScrollView>
-        );
-    }
-}
+
+export default createAppContainer(StackNavigator);

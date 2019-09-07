@@ -7,10 +7,10 @@ import Menu from './Menu';
 
 export default class Main extends PureComponent {
     closeControlPanel = () => {
-        this._drawer.close()
+        this._drawer.close();
     };
     openControlPanel = () => {
-        this._drawer.open()
+        this._drawer.open();
     };
 
     render() {

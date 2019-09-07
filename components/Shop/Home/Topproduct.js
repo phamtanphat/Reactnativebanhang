@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Screenapp from '../../Unit/Screenapp';
 
 import sp1 from '../../media/temp/sp1.jpeg';
@@ -8,6 +8,13 @@ import sp3 from '../../media/temp/sp3.jpeg';
 import sp4 from '../../media/temp/sp4.jpeg';
 
 export default class Topproduct extends PureComponent {
+    constructor(props) {
+        super(props); 
+        this.navigateDetail = this.navigateDetail.bind(this);
+    }
+    navigateDetail() {
+        this.props.navigation.navigate('ProductDetail');
+    }
     render() {
         const { container, titleContainer, title, body, 
             productContainer, productImage, productName, productPrice } = styles;
@@ -17,27 +24,39 @@ export default class Topproduct extends PureComponent {
                     <Text style={title}>TOP PRODUCT</Text>
                 </View>
                 <View style={body} >
-                    <View style={productContainer}>
+                    <TouchableOpacity 
+                        onPress={this.navigateDetail}
+                        style={productContainer}
+                    >
                         <Image source={sp1} style={productImage} />
                         <Text style={productName}>PRODUCT NAME</Text>
                         <Text style={productPrice}>400$</Text>
-                    </View>
-                    <View style={productContainer}>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        onPress={this.navigateDetail}
+                        style={productContainer}
+                    >
                         <Image source={sp2} style={productImage} />
                         <Text style={productName}>PRODUCT NAME</Text>
                         <Text style={productPrice}>200$</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={{ height: Screenapp.width * 0.03, width: Screenapp.width }} />
-                    <View style={productContainer}>
+                    <TouchableOpacity 
+                        onPress={this.navigateDetail}
+                        style={productContainer}
+                    >
                         <Image source={sp3} style={productImage} />
                         <Text style={productName}>PRODUCT NAME</Text>
                         <Text style={productPrice}>300$</Text>
-                    </View>
-                    <View style={productContainer}>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        onPress={this.navigateDetail} 
+                        style={productContainer}
+                    >
                         <Image source={sp4} style={productImage} />
                         <Text style={productName}>PRODUCT NAME</Text>
                         <Text style={productPrice}>500$</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
