@@ -2,10 +2,10 @@
 /* eslint-disable no-unused-vars */
 import { fromLeft } from 'react-navigation-transitions';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import Authentication from '../Authentication';
-import ChangInfo from '../ChangInfo';
-import OrderHistory from '../OrderHistory';
-import Main from '../Main';
+import Authentication from '../Authentication/Authentication';
+import ChangInfo from '../ChangeInfo/ChangInfo';
+import OrderHistory from '../OrderHistory/OrderHistory';
+import Main from '../Main/Main';
 
 
 const StackNavigator = createStackNavigator({
