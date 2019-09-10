@@ -7,24 +7,21 @@ import Homeview from './Homeview';
 import ProductDetail from '../ProductDetail/ProductDetail';
 import ListProduct from '../ListProduct/ListProduct';
 
-const StackNavigator = createStackNavigator({
-    Homeview: { screen: Homeview },
-    ProductDetail: { screen: ProductDetail },
-    ListProduct: { screen: ListProduct }
-}, {
-        initialRouteName: 'Homeview',
-        transitionConfig: () => fromLeft(1000),
-        headerMode: 'none'
-});
 export default class Home extends PureComponent {
     render() {
+        const { categoryTypes } = this.props;
+        const StackNavigator = createStackNavigator({
+            Homeview: { screen: Homeview, params: categoryTypes },
+            ProductDetail: { screen: ProductDetail },
+            ListProduct: { screen: ListProduct }
+        }, {
+                initialRouteName: 'Homeview',
+                transitionConfig: () => fromLeft(1000),
+                headerMode: 'none'
+        });
+        const Stack = createAppContainer(StackNavigator);
         return (
-            <View>
-                <Text> textInComponent </Text>
-            </View>
-        )
+            <Stack />
+        );
     }
 }
-
-
-export default createAppContainer(StackNavigator);
