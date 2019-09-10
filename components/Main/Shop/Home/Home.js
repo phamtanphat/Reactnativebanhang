@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+import React, { PureComponent } from 'react'
 import { fromLeft } from 'react-navigation-transitions';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Homeview from './Homeview';
@@ -15,6 +16,15 @@ const StackNavigator = createStackNavigator({
         transitionConfig: () => fromLeft(1000),
         headerMode: 'none'
 });
+export default class Home extends PureComponent {
+    render() {
+        return (
+            <View>
+                <Text> textInComponent </Text>
+            </View>
+        )
+    }
+}
 
 
 export default createAppContainer(StackNavigator);

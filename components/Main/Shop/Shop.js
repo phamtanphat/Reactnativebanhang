@@ -6,6 +6,7 @@ import Contact from './Contact/Contact';
 import Home from './Home/Home';
 import Search from './Search/Search';
 import Header from './Header';
+import Api from '../../Unit/Api';
 
 import homeIconS from '../../../media/appIcon/home.png';
 import homeIcon from '../../../media/appIcon/home0.png';
@@ -23,8 +24,17 @@ export default class Shop extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: 'Home'
+            selectedTab: 'Home',
+            categoryTypes: []
         };
+    }
+    componentDidMount() {
+        const Url = `${Api}api/`;
+        fetch(Url)
+        .then(response => response.json())
+        .then(resJSON => {
+            this.setState({ categoryTypes: resJSON.type });
+        });
     }
     openMenu() {
         const { open } = this.props;
@@ -32,6 +42,7 @@ export default class Shop extends PureComponent {
     }
     render() {
         const { iconStyle } = styles;
+        const { categoryTypes } = this.state;
         return (
             <View style={{ flex: 1 }}>
                 <Header onOpenMenu={this.openMenu.bind(this)} />
@@ -44,7 +55,7 @@ export default class Shop extends PureComponent {
                         selectedTitleStyle={{ color: '#34B089', fontFamily: 'Avenir' }}
                         onPress={() => this.setState({ selectedTab: 'Home' })}
                     >
-                        <Home />
+                        <Home categoryTypes={categoryTypes} />
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'Cart'}
@@ -90,3 +101,4 @@ const styles = StyleSheet.create({
         height: height / 28
     }
 });
+

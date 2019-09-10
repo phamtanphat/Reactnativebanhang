@@ -5,7 +5,6 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Cartview from './Cartview';
 import ProductDetail from '../ProductDetail/ProductDetail';
 
-
 const StackNavigator = createStackNavigator({
     Cartview: { screen: Cartview },
     ProductDetail: { screen: ProductDetail }
