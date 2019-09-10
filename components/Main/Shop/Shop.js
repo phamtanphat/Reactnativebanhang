@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { PureComponent } from 'react';
 import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';

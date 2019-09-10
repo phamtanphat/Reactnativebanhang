@@ -10,6 +10,7 @@ import partyIcon from '../../../../media/temp/party.jpg';
 export default class Category extends PureComponent {
     render() {
         const { wrapper, textStyle, imageStyle, cateTitle } = styles;
+        const {categoryTypes} = this.props;
         return (
             <View style={wrapper}>
                 <View style={{ flex: 1, justifyContent: 'center' }}>
